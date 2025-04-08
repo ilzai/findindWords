@@ -81,14 +81,18 @@ int main(char *argv, int argc){
     if(!dict){
         printf("error - can not open dictionary file\n");
     }else{
+        int countWords = 0;
         char stringBuf[50];
         memset(&stringBuf, 0, sizeof(stringBuf));
         while(fscanf(dict, "%s", stringBuf) != EOF){
-            if(compare(stringBuf))
+            if(compare(stringBuf)){
                 printf("correct string %s\n", stringBuf);
+                countWords++;
+            }
             memset(&stringBuf, 0, sizeof(stringBuf));
         }
         fclose(dict);
+        printf("total words counted: %d\n", countWords);
     }
     return 0;
 }
