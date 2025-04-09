@@ -50,12 +50,12 @@ int isContains(char *target, char find){
 int isClose(char first, char second){
     int sizeMap = sizeof(map) / sizeof(*map);
     int i = 0;
-    while(tolower(first) != map[i].symb){
+    while(first != map[i].symb){
         i++;
         if(i > sizeMap)
             return 0;
     }
-    if(isContains(map[i].arr, tolower(second)))
+    if(isContains(map[i].arr, second))
         return 1;
     else
         return 0;
